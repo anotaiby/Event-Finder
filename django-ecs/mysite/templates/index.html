@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% if latest_event_list %}
+ <h2>Events</h2>
+
+ <table>
+    <tr>
+    <th >Event title</th>
+    <th>Venue</th>
+    <th>Time</th>
+      <th></th>
+  </tr>
+        {% for event in latest_event_list %}
+
+  <tr>
+    <td>{{ event.title }}</td>
+    <td>{{ event.venue }}</td>
+     <td>{{ event.time }}</td>
+      <td><a href="/{{ event.id }}/">Details</a></td>
+  </tr>
+
+ {% endfor %}
+</table>
+
+     {% else %}
+    <p>There are no available events now.</p>
+
+{% endif %}
+{% endblock %}
+

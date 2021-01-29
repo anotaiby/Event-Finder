@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+<div class="container-md"> 
+       <h2>{{ e.title }} </h2>
+       <a href="edit"  class="btn btn-secondary">edit this event</a>
+       <a href="delete"  class="btn btn-danger">delete this event</a>
+       <h3>When</h3>
+       <p>{{ e.time }}</p>
+       <h3>Description</h3>
+       <p>{{ e.desc }} </p>
+       <h3>contact</h3>   {{ e.contact }} </br>
+       <h3>Venue</h3>   {{ e.venue }} </br>
+       <h3>Poster</h3>
+       <img src="{{ e.image.url }}" width="420" height="420" >
+</div>
+
+{% endblock %}
+
